@@ -25,7 +25,7 @@ function download_godot_headless() {
 
         # Godot mono headleass build comes with an extra 'GodotSharp' folder
         # that needs to be copied as well
-        cp Godot_v${VERSION}-stable_mono_linux_headless_64/GD_MONO_HEADLESS_NAME $CACHE_DIR/GD_MONO_HEADLESS_NAME
+        cp Godot_v${VERSION}-stable_mono_linux_headless_64/Godot_v${VERSION}-stable_mono_linux_headless.64 $CACHE_DIR/GD_MONO_HEADLESS_NAME
         cp -r Godot_v${VERSION}-stable_mono_linux_headless_64/GodotSharp $CACHE_DIR
         #
         touch "$CACHE_DIR/._sc_"
@@ -60,7 +60,7 @@ function download_godot_server() {
         unzip -o godot-server.zip
 
         #
-        cp Godot_v${VERSION}-stable_mono_linux_server_64/GD_MONO_SERVER_NAME $CACHE_DIR/GD_MONO_SERVER_NAME
+        cp Godot_v${VERSION}-stable_mono_linux_server_64/Godot_v${VERSION}-stable_mono_linux_server.64 $CACHE_DIR/GD_MONO_SERVER_NAME
         cp -r Godot_v${VERSION}-stable_mono_linux_server_64/data_Godot_v${VERSION}-stable_mono_linux_server_64 $CACHE_DIR
         touch "$CACHE_DIR/._sc_"
     else

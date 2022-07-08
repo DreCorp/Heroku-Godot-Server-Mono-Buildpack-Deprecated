@@ -19,7 +19,7 @@ function download_dotnet_script() {
 
         output_section "Installing DotNet..."
         #./dotnet-install $CACHE_DIR/dotnet
-        ./dotnet-install --install-dir $BUILD_DIR/dotnet
+        ./dotnet-install.sh --install-dir $BUILD_DIR/dotnet
 
         # add to path
         export PATH=$PATH:~/$BUILD_DIR/dotnet
