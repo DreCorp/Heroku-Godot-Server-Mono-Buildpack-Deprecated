@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+PORT=${1:-${PORT:-3000}}
+#./godot_mono_server.64 --path "dist" --main-pack "linux.pck" $PORT
+(cd dist && ./godot_mono_server.64 --main-pack "linux.pck" $PORT)
