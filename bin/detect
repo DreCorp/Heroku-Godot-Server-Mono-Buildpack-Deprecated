@@ -9,7 +9,7 @@
 # If the exit code is 0, the script must print a human-readable framework name to stdout
 
 # Check if project.godot exists in the repo
-if [ -f $1/project.godot]
+if [ -f $1/project.godot ]
 then
     echo "Godot"
     exit 0
