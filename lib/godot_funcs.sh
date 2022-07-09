@@ -109,18 +109,18 @@ function download_godot_templates() {
 #
 function export_godot_project() {
     #
-    OUTPUT_DEST="$BUILD_DIR/dist"
-    OUTPUT_FILE="$OUTPUT_DEST/linux.pck"
+    #OUTPUT_DEST="$BUILD_DIR/dist"
+    #OUTPUT_FILE="$OUTPUT_DEST/linux.pck"
     
     #
     output_section "Exporting Godot Server Project..."
-    output_line "Target: '$OUTPUT_FILE'"
+    #output_line "Target: '$OUTPUT_FILE'"
     
     # create folders
-    mkdir -p $OUTPUT_DEST
+    #mkdir -p $OUTPUT_DEST
     # Export the project to Linux/X11 
     # (The project must have a Linux/X11 export template setup)
     # source: $BUILD_DIR/dist
     # destinations: $OUTPUT_FILE
-    $BUILD_DIR/godot_mono_headless.64 --path "$BUILD_DIR" --export-pack "Linux/X11" "$OUTPUT_FILE" || exit 1
+    $BUILD_DIR/godot_mono_headless.64 --path "dist" --export-pack "Linux/X11" "linux.pck" || exit 1
 }
