@@ -80,8 +80,8 @@ function download_godot_templates() {
     #
     local VERSION=$1
     GODOT_TEMPLATES_URL=https://downloads.tuxfamily.org/godotengine/${VERSION}/mono/Godot_v${VERSION}-stable_mono_export_templates.tpz
-    TEMPLATES_DEST="$CACHE_DIR/editor_data/templates/${VERSION}.stable.mono"
-    #TEMPLATES_DEST = "$BUILD_DIR/.local/share/godot/templates/${VERSION}.stable.mono"
+    #TEMPLATES_DEST="$CACHE_DIR/editor_data/templates/${VERSION}.stable.mono"
+    TEMPLATES_DEST = "$BUILD_DIR/.local/share/godot/templates/${VERSION}.stable.mono"
 
     #
     if [ ! -f $TEMPLATES_DEST/linux_x11_64_release ]; then
