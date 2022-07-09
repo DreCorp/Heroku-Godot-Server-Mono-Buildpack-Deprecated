@@ -94,8 +94,9 @@ function download_godot_templates() {
         #
         cp templates/linux_x11_64_debug $TEMPLATES_DEST
         cp templates/linux_x11_64_release $TEMPLATES_DEST
+
         cp -r templates/data.mono.x11.64.release $TEMPLATES_DEST
-        cp -r templates/data.mono.x11.64.debug $TEMPLATES_DEST
+        cp -r templates/data.mono.x11.64.release_debug $TEMPLATES_DEST
 
     else
         output_section "Using cached Godot Mono Linux/X11 x64 Templates."
