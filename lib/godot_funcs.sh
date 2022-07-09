@@ -123,5 +123,5 @@ function export_godot_project() {
     # (The project must have a Linux/X11 export template setup)
     # source: $BUILD_DIR/dist
     # destinations: $OUTPUT_FILE
-    $BUILD_DIR/godot_mono_headless.64 --path "dist" --export-pack "Linux/X11" "linux.pck" || exit 1
+    $BUILD_DIR/godot_mono_headless.64 --export-pack "Linux/X11" "dist/linux.pck" || exit 1
 }
