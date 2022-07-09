@@ -15,7 +15,7 @@ function download_dotnet_script() {
         cp dotnet-install.sh $BUILD_DIR
 
         # give file permission
-        chmod +x $BUILD_DIR/.dotnet-install.sh
+        chmod +x $BUILD_DIR/dotnet-install.sh
 
         output_section "Installing DotNet..."
         #./dotnet-install $CACHE_DIR/dotnet
