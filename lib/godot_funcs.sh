@@ -16,29 +16,27 @@ function download_godot_headless() {
         #
         output_section "Downloading Godot Mono Headless v$VERSION executable..."
         
-        #
+        # download headless executalbe zip
         curl -s $GD_MONO_HEADLESS_URL -o godot-headless.zip || exit 1
-
-        #
+        # unzip
         unzip -o godot-headless.zip
-
 
         # Godot mono headleass build comes with an extra 'GodotSharp' folder
         # that needs to be copied as well
         cp Godot_v${VERSION}-stable_mono_linux_headless_64/Godot_v${VERSION}-stable_mono_linux_headless.64 $CACHE_DIR/GD_MONO_HEADLESS_NAME
         cp -r Godot_v${VERSION}-stable_mono_linux_headless_64/GodotSharp $CACHE_DIR
         #
+        # set 'self-contained mode'
         touch "$CACHE_DIR/._sc_"
     else
         output_section "Using cached Godot v$VERSION Headless executable"
     fi
 
-    #no  need to copy headless to build dir?
-    # copy godot headless executable
+    # copy godot mono headless executable and data dir to build dir
     cp $CACHE_DIR/GD_MONO_HEADLESS_NAME $BUILD_DIR/godot_mono_headless.64
     cp -r $CACHE_DIR/GodotSharp $BUILD_DIR
 
-    # Godot headless is stored at $BUILD_DIR/godot_headless.64 ?
+    # Godot mono headless executable is stored at $BUILD_DIR/godot_mono_headless.64
     output_section "Godot Mono Headless setup done."
 }
 
@@ -55,23 +53,27 @@ function download_godot_server() {
     if [ ! -f $CACHE_DIR/GD_MONO_SERVER_NAME ]; then
         #
         output_section "Downloading Godot Mono Server v$VERSION executable..."
-        curl -s $GD_MONO_SERVER_URL -o godot-server.zip || exit 1
 
+        # download godot server mono executable
+        curl -s $GD_MONO_SERVER_URL -o godot-server.zip || exit 1
+        # unzip it
         unzip -o godot-server.zip
 
-        #
+        # copy executable and its data folder to cache
         cp Godot_v${VERSION}-stable_mono_linux_server_64/Godot_v${VERSION}-stable_mono_linux_server.64 $CACHE_DIR/GD_MONO_SERVER_NAME
         cp -r Godot_v${VERSION}-stable_mono_linux_server_64/data_Godot_v${VERSION}-stable_mono_linux_server_64 $CACHE_DIR
-        touch "$CACHE_DIR/._sc_"
+
+        #touch "$CACHE_DIR/._sc_"
     else
         output_section "Using cached Godot v$VERSION Server executable"
     fi
-    # copy godot server executable to dist folder
-    # as executable will need some libraries included in the mono data folder
+
+    # copy godot mono server executable to dist folder,
+    # as server executable will need some libraries included in the mono data folder
     cp $CACHE_DIR/GD_MONO_SERVER_NAME $BUILD_DIR/dist/godot_mono_server.64
     cp -r $CACHE_DIR/data_Godot_v${VERSION}-stable_mono_linux_server_64 $BUILD_DIR/dist
 
-    # Godot server is stored at $BUILD_DIR/dist/godot_server.64
+    # Godot server is stored at $BUILD_DIR/dist/godot_mono_server.64
     output_section "Godot Mono Server setup done."
 }
 
@@ -80,8 +82,8 @@ function download_godot_templates() {
     #
     local VERSION=$1
     GODOT_TEMPLATES_URL=https://downloads.tuxfamily.org/godotengine/${VERSION}/mono/Godot_v${VERSION}-stable_mono_export_templates.tpz
-    #TEMPLATES_DEST="$CACHE_DIR/editor_data/templates/${VERSION}.stable.mono"
-    TEMPLATES_DEST = "$BUILD_DIR/.local/share/godot/templates/${VERSION}.stable.mono"
+    TEMPLATES_DEST="$CACHE_DIR/editor_data/templates/${VERSION}.stable.mono"
+    #TEMPLATES_DEST = "$BUILD_DIR/.local/share/godot/templates/${VERSION}.stable.mono"
 
     #
     if [ ! -f $TEMPLATES_DEST/linux_x11_64_release ]; then
@@ -98,11 +100,15 @@ function download_godot_templates() {
 
         cp -r templates/data.mono.x11.64.release $TEMPLATES_DEST
         cp -r templates/data.mono.x11.64.release_debug $TEMPLATES_DEST
-
     else
         output_section "Using cached Godot Mono Linux/X11 x64 Templates."
     fi
     
+    #copy editor_data folder to build directory
+    cp -r "$CACHE_DIR/editor_data" $BUILD_DIR
+    # set godot headless executable to 'self-contained' mode
+    touch "$BUILD_DIR/._sc_"
+
     # Godot export templates are stored at $CACHE_DIR/editor_data/templates/${VERSION}.stable
     output_section "Godot Templates setup done."
 }
