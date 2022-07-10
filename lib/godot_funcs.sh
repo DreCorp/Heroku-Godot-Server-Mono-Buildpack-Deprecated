@@ -68,7 +68,7 @@ function download_godot_server() {
         output_section "Using cached Godot v$VERSION Server executable"
     fi
 
-    # copy godot mono server executable to dist folder,
+    # copy godot mono server executable to dist folder,<===!!!
     # as server executable will need some libraries included in the mono data folder
     cp $CACHE_DIR/GD_MONO_SERVER_NAME $BUILD_DIR/dist/godot_mono_server.64
     cp -r $CACHE_DIR/data_Godot_v${VERSION}-stable_mono_linux_server_64 $BUILD_DIR/dist

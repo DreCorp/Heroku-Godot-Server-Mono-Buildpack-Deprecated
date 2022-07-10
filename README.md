@@ -1,7 +1,7 @@
 # **Heroku buildpack for Godot Engine Mono Server exports.**
 
 
-### [Heroku](https://heroku.com) [buildpack](https://devcenter.heroku.com/articles/buildpacks) for continuous deployment of [Godot Engine](https://godotengine.org) Mono Server exports that utilizes Godot's [WebSocketServer](https://docs.godotengine.org/en/stable/classes/class_websocketserver.html#class-websocketserver).
+#### [Heroku](https://heroku.com) [buildpack](https://devcenter.heroku.com/articles/buildpacks) for continuous deployment of [Godot Engine](https://godotengine.org) Mono Server exports that utilize Godot's [WebSocketServer](https://docs.godotengine.org/en/stable/classes/class_websocketserver.html#class-websocketserver).
 ---
 ## **Features:**
 - Allows for [automatic deploys](https://devcenter.heroku.com/articles/github-integration#automatic-deploys) of Godot Mono projects from source to Heroku with Git.
