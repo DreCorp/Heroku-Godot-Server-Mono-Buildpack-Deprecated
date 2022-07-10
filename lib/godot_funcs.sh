@@ -29,7 +29,7 @@ function download_godot_headless() {
         # set 'self-contained mode'
         touch "$CACHE_DIR/._sc_"
     else
-        output_section "Using cached Godot v$VERSION Headless executable"
+        output_section "Using cached Godot v$VERSION Mono Headless executable"
     fi
 
     # copy godot mono headless executable and data dir to build dir
@@ -65,7 +65,7 @@ function download_godot_server() {
 
         #touch "$CACHE_DIR/._sc_"
     else
-        output_section "Using cached Godot v$VERSION Server executable"
+        output_section "Using cached Godot v$VERSION Mono Server executable"
     fi
 
     # copy godot mono server executable to dist folder,<===!!!
@@ -110,7 +110,7 @@ function download_godot_templates() {
     touch "$BUILD_DIR/._sc_"
 
     # Godot export templates are stored at $CACHE_DIR/editor_data/templates/${VERSION}.stable
-    output_section "Godot Templates setup done."
+    output_section "Godot Mono Templates setup done."
 }
 
 
@@ -121,14 +121,12 @@ function export_godot_project() {
     OUTPUT_FILE="$OUTPUT_DEST/linux.pck"
     
     #
-    output_section "Exporting Godot Server Project..."
+    output_section "Exporting Godot Mono Server Project..."
     #output_line "Target: '$OUTPUT_FILE'"
     
     # create folders
     #mkdir -p $OUTPUT_DEST
     # Export the project to Linux/X11 
-    # (The project must have a Linux/X11 export template setup)
-    # source: $BUILD_DIR/dist
-    # destinations: $OUTPUT_FILE
+    # The project must have a Linux/X11 export template setup
     $BUILD_DIR/godot_mono_headless.64 --path "$BUILD_DIR" --export-pack "Linux/X11" "$OUTPUT_FILE" || exit 1
 }

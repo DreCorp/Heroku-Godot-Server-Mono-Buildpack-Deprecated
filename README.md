@@ -32,7 +32,12 @@
     string myConfigVar = OS.GetEnvironment("MY_CONFIG_VAR" as string);
     ~~~
 ---
-## **Resources used** :
+## **Resources used:**
 - [Abdera7mane/godot-server-buildpack](https://github.com/Abdera7mane/godot-server-buildpack)
 - [3ddelano/heroku-buildpack-godot](https://github.com/3ddelano/heroku-buildpack-godot)
 - [ethiandev/heroku-buildpack-godot](https://github.com/lethiandev/heroku-buildpack-godot)
+---
+## **TODO:**
+- Handle .Net installation in a better, more efficient way.
+- Implement .Net version requirement.
+
