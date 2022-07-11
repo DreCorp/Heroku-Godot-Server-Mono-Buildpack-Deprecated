@@ -25,7 +25,7 @@ function download_godot_headless() {
 
         # Godot mono headleass build comes with an extra 'GodotSharp' folder
         # that needs to be copied as well
-        cp Godot_v${VERSION}-stable_mono_linux_headless_64/Godot_v${VERSION}-stable_mono_linux_headless.64 $CACHE_DIR/godot_mono_headless.64
+        cp Godot_v${VERSION}-stable_mono_linux_headless_64/Godot_v${VERSION}-stable_mono_linux_headless.64 "$CACHE_DIR/godot_mono_headless.64"
         cp -r Godot_v${VERSION}-stable_mono_linux_headless_64/GodotSharp $CACHE_DIR
         #
         # set 'self-contained mode'
@@ -35,8 +35,8 @@ function download_godot_headless() {
     fi
 
     # copy godot mono headless executable and data dir to build dir
-    cp $CACHE_DIR/godot_mono_headless.64 $BUILD_DIR/godot_mono_headless.64
-    cp -r $CACHE_DIR/GodotSharp $BUILD_DIR
+    #cp $CACHE_DIR/godot_mono_headless.64 $BUILD_DIR/godot_mono_headless.64
+    #cp -r $CACHE_DIR/GodotSharp $BUILD_DIR
 
     # Godot mono headless executable is stored at $BUILD_DIR/godot_mono_headless.64
     output_section "Godot Mono Headless setup done."
@@ -71,7 +71,8 @@ function download_godot_server() {
     fi
 
     # copy godot mono server executable to dist folder,<===!!!
-    # as server executable will need some libraries included in the mono data folder
+    # as server executable will need some libraries
+    # included in the mono data folder od the exported project
     cp $CACHE_DIR/GD_MONO_SERVER_NAME $BUILD_DIR/dist/godot_mono_server.64
     cp -r $CACHE_DIR/data_Godot_v${VERSION}-stable_mono_linux_server_64 $BUILD_DIR/dist
 
