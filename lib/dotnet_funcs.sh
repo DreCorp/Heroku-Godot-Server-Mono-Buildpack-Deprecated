@@ -1,4 +1,6 @@
 #!/bin/bash
+#dotnet_funcs.sh
+
 
 #
 function download_dotnet_script() {
@@ -23,11 +25,9 @@ function download_dotnet_script() {
 
         output_section ".Net installation finished."
     else
-        output_section "Using cached .Net files."
+        output_section "Using cached .Net install."
     fi
-    # copy dotnet folder
-    #cp -r $CACHE_DIR/dotnet $BUILD_DIR
+
     # add dotnet path to $PATH
-    #export PATH="$PATH:$BUILD_DIR/dotnet"
     export PATH="$PATH:$CACHE_DIR/dotnet"
 }

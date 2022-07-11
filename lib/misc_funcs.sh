@@ -1,3 +1,7 @@
+#!/bin/bash
+#misc_funcs.sh
+
+
 #
 function output_line() {
     local spacing="      "

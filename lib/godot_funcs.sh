@@ -1,3 +1,5 @@
+#!/bin/bash
+#godot_funcs.sh
 
 
 #
@@ -77,6 +79,7 @@ function download_godot_server() {
     output_section "Godot Mono Server setup done."
 }
 
+
 #
 function download_godot_templates() {
     #
@@ -125,7 +128,7 @@ function export_godot_project() {
     #output_line "Target: '$OUTPUT_FILE'"
     
     # create folders
-    #mkdir -p $OUTPUT_DEST
+    mkdir -p $OUTPUT_DEST
     # Export the project to Linux/X11 
     # The project must have a Linux/X11 export template setup
     $BUILD_DIR/godot_mono_headless.64 --path "$BUILD_DIR" --export-pack "Linux/X11" "$OUTPUT_FILE" || exit 1
