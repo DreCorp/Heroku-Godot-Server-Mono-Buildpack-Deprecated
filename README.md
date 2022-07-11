@@ -18,9 +18,9 @@
 ## **Required Godot export template:**
 - Exported project needs to be built at least once locally with [Linux/X11 template](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_linux.html?highlight=export%20template).
 ---
-## **Handling of `ports`:**
+## **Handling of ports:**
 - Heroku randomly assigns the port for the application.
-- Exported project needs to bind to **`$PORT`** passed as a first argument of [OS.GetCmdlineArgs()](https://docs.godotengine.org/en/stable/classes/class_os.html?highlight=OS#class-os-method-get-cmdline-args):
+- Exported project needs to bind to **`$PORT`** passed as a first argument of **[OS.GetCmdlineArgs()](https://docs.godotengine.org/en/stable/classes/class_os.html?highlight=OS#class-os-method-get-cmdline-args)**:
 
     ~~~c#
     string[] args = OS.GetCmdlineArgs();
@@ -31,7 +31,7 @@
 - Connect **websocket** clients to your server with **`wss://your_app.herokuapp.com`**
 ---
 ## **Handling of other Heroku config vars:**
-- Heroku config vars can be consumed by Godot with **OS.GetEnvironment()**:
+- Heroku config vars can be consumed by Godot with **[OS.GetEnvironment()](https://docs.godotengine.org/en/stable/classes/class_os.html?highlight=os#class-os-method-get-environment)**:
     ~~~c#
     string myConfigVar = OS.GetEnvironment("MY_CONFIG_VAR" as string);
     ~~~
