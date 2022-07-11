@@ -1,15 +1,19 @@
-# **Experimental Heroku buildpack for Godot Engine Mono Server exports.**
+# **Heroku buildpack for Godot Engine Mono Server exports.**
 
 
-#### Experimental [Heroku](https://heroku.com) [buildpack](https://devcenter.heroku.com/articles/buildpacks) for continuous deployment of [Godot Engine](https://godotengine.org) Mono Server exports that utilize Godot's [WebSocketServer](https://docs.godotengine.org/en/stable/classes/class_websocketserver.html#class-websocketserver).
+#### [Heroku](https://heroku.com) [buildpack](https://devcenter.heroku.com/articles/buildpacks) for continuous deployment of [Godot Engine](https://godotengine.org) Mono Server exports that utilize Godot's [WebSocketServer](https://docs.godotengine.org/en/stable/classes/class_websocketserver.html#class-websocketserver).
 ---
 ## **Features:**
 - Allows for [automatic deploys](https://devcenter.heroku.com/articles/github-integration#automatic-deploys) of Godot Mono projects from source to Heroku with Git.
 - Runs in the Heroku cloud with [Godot Mono Server executable](https://godotengine.org/download/server).
-- Uses [**.Net**](https://dotnet.microsoft.com/en-us/) instead of Mono.
+---
+## **Required:**
+- Ensure that `project.godot` and `export_presets.cfg` files are inclided in the source(Godot adds them to `.gitignore` automatically.)
+- Project will be exported using [**.Net**](https://dotnet.microsoft.com/en-us/) SDK instead of [**Mono**](https://www.mono-project.com/).
+    - In Godot Editor Settings set Mono Build Tool to **dotnetCLI**.
 ---
 ## **Required Heroku config vars:**
-- **GODOT_VERSION** such as 3.4.4.
+- **GODOT_VERSION** such as `3.4.4`.
 ---
 ## **Required Godot export template:**
 - Exported project needs to be built at least once locally with [Linux/X11 template](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_linux.html?highlight=export%20template).
@@ -36,8 +40,5 @@
 - [Abdera7mane/godot-server-buildpack](https://github.com/Abdera7mane/godot-server-buildpack)
 - [3ddelano/heroku-buildpack-godot](https://github.com/3ddelano/heroku-buildpack-godot)
 - [ethiandev/heroku-buildpack-godot](https://github.com/lethiandev/heroku-buildpack-godot)
----
-## **TODO:**
-- Handle .Net installation in a better, more efficient way.
-- Implement .Net version requirement.
+
 
