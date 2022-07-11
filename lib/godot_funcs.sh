@@ -25,7 +25,7 @@ function download_godot_headless() {
 
         # Godot mono headleass build comes with an extra 'GodotSharp' folder
         # that needs to be copied as well
-        cp Godot_v${VERSION}-stable_mono_linux_headless_64/Godot_v${VERSION}-stable_mono_linux_headless.64 $CACHE_DIR/GD_MONO_HEADLESS_NAME
+        cp Godot_v${VERSION}-stable_mono_linux_headless_64/Godot_v${VERSION}-stable_mono_linux_headless.64 $CACHE_DIR/godot_mono_headless.64
         cp -r Godot_v${VERSION}-stable_mono_linux_headless_64/GodotSharp $CACHE_DIR
         #
         # set 'self-contained mode'
@@ -35,7 +35,7 @@ function download_godot_headless() {
     fi
 
     # copy godot mono headless executable and data dir to build dir
-    cp $CACHE_DIR/GD_MONO_HEADLESS_NAME $BUILD_DIR/godot_mono_headless.64
+    cp $CACHE_DIR/godot_mono_headless.64 $BUILD_DIR/godot_mono_headless.64
     cp -r $CACHE_DIR/GodotSharp $BUILD_DIR
 
     # Godot mono headless executable is stored at $BUILD_DIR/godot_mono_headless.64
@@ -131,5 +131,5 @@ function export_godot_project() {
     mkdir -p $OUTPUT_DEST
     # Export the project to Linux/X11 
     # The project must have a Linux/X11 export template setup
-    $BUILD_DIR/godot_mono_headless.64 --path "$BUILD_DIR" --export-pack "Linux/X11" "$OUTPUT_FILE" || exit 1
+    $CACHE_DIR/godot_mono_headless.64 --path "$BUILD_DIR" --export-pack "Linux/X11" "$OUTPUT_FILE" || exit 1
 }
