@@ -13,8 +13,8 @@ function download_godot_headless() {
     # the name of the Godot Mono Headless build once it is unzipped
     GD_MONO_HEADLESS_NAME=Godot_v${VERSION}-stable_mono_linux_headless.64
 
-    # if cache dir doesnt have file with GD_MONO_HEADLESS_NAME
-    if [ ! -f $CACHE_DIR/GD_MONO_HEADLESS_NAME ]; then
+    # if cache dir doesnt have file with 'godot_mono_headless.64'
+    if [ ! -f $CACHE_DIR/godot_mono_headless.64 ]; then
         #
         output_section "Downloading Godot Mono Headless v$VERSION executable..."
         
