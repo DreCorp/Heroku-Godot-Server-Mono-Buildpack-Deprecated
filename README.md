@@ -1,4 +1,4 @@
-# **Heroku buildpack for Godot Engine Mono Server exports.**
+# **Heroku buildpack for Godot Engine Mono Server exports - DEPRECATED**
 
 ## :no_entry_sign: This repo is no longer maintained or supported! :no_entry_sign:
 
